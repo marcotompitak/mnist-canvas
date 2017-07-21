@@ -105,4 +105,5 @@ model = load_model('MNIST_NN.h5')
 
 # Start flask app
 if __name__ == '__main__':
-    app.run()
+    from os import environ
+    app.run(debug=False, port=environ.get("PORT", 5000), host='0.0.0.0')
