@@ -37,8 +37,16 @@
                 last_mouse.x = mouse.x;
                 last_mouse.y = mouse.y;
                 
-                mouse.x = e.pageX - this.offsetLeft;
-                mouse.y = e.pageY - this.offsetTop;
+                /* Modified this to avoid problems with
+                   scrolling the page */
+                if (e.offsetX) {
+                    mouse.x = e.offsetX;
+                    mouse.y = e.offsetY;
+                }
+                else if (e.layerX) {
+                    mouse.x = e.layerX;
+                    mouse.y = e.layerY;
+                }
             }, false);
             
             window.onload = function() {
