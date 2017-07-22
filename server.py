@@ -1,6 +1,7 @@
 # Runs on 0.0.0.0, port specified by Heroku
 
 from flask import Flask, url_for, request
+from flask_cors import CORS, cross_origin
 import io
 import numpy as np
 import cv2
@@ -10,6 +11,8 @@ from keras.models import load_model
 
 # Setting up the Flask app
 app = Flask(__name__)
+cors = CORS(app)
+#app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Serve a canvas interface on /
 @app.route('/')
@@ -48,6 +51,7 @@ def api_predict():
     return "The image you uploaded shows a " + str(pred) + ".\n"
 
 @app.route('/post-data-url', methods = ['POST'])
+@cross_origin()
 def api_predict_from_dataurl():
     # In this case, we read the image data from a base64 data URL
     imgstring = request.form.get('data')
