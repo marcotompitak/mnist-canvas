@@ -1,4 +1,5 @@
 # Runs on 0.0.0.0, port specified by Heroku
+# Allows CORS
 
 from flask import Flask, url_for, request
 from flask_cors import CORS, cross_origin
@@ -11,8 +12,9 @@ from keras.models import load_model
 
 # Setting up the Flask app
 app = Flask(__name__)
+
+# Allow Cross-Origin Resource Sharing
 cors = CORS(app)
-#app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Serve a canvas interface on /
 @app.route('/')
