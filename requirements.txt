@@ -4,3 +4,4 @@ tensorflow==1.1.0
 flask
 numpy
 h5py==2.6.0
+flask-cors
