@@ -1,4 +1,4 @@
-# Runs on 0.0.0.0, port specified by Heroku
+# Runs on localhost
 
 from flask import Flask, url_for, request
 import io
@@ -107,5 +107,4 @@ model = load_model('MNIST_NN.h5')
 
 # Start flask app
 if __name__ == '__main__':
-    from os import environ
-    app.run(debug=False, port=environ.get("PORT", 5000), host='0.0.0.0')
+    app.run()
