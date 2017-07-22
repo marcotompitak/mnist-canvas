@@ -88,7 +88,7 @@ def api_predict_from_dataurl():
     # Generate prediction
     pred = model.predict_classes(data)[0]
     
-    print(str(pred))
+    print("Prediction requested! Returned " + str(pred))
     
     # Return the prediction
     return str(pred)
