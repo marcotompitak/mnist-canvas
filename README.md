@@ -6,6 +6,8 @@ A live version of the app is running over at [mnist-canvas.herokuapp.com](https:
 
 New version: `server_CNN.py` uses a more elaborate CNN (trained in `generate_conv_model.py`) to recognize the digits. The server now also preprocesses the files in the same way that the MNIST images were preprocessed, improving recognition.
 
+-------------------
+
 ### File descriptions:
 
 `server.py` (for Heroku) or `server_local.py` serves a Flask web app that loads a pre-trained neural network into Keras. It provides two ways of communicating with the backend:
