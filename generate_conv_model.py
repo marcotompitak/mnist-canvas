@@ -1,6 +1,8 @@
 '''Trains a simple deep NN on the MNIST dataset.
 
-Taken from the Keras example at https://github.com/fchollet/keras/blob/master/examples/mnist_mlp.py
+Based on the Keras example at https://github.com/fchollet/keras/blob/master/examples/mnist_mlp.py
+
+Architecture design borrowed from http://machinelearningmastery.com/handwritten-digit-recognition-using-convolutional-neural-networks-python-keras/
 '''
 
 from __future__ import print_function

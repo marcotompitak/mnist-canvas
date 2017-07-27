@@ -1,4 +1,10 @@
-Simple Flask API and canvas page to let the user interact with a neural network trained on the MNIST dataset. Its architecture is simply that from the [Keras example](https://github.com/fchollet/keras/blob/master/examples/mnist_mlp.py). A live version of the app is running over at [mnist-canvas.herokuapp.com](https://mnist-canvas.herokuapp.com/).
+Simple Flask API and canvas page to let the user interact with a neural network trained on the MNIST dataset. The first version's architecture was simply that from the [Keras example](https://github.com/fchollet/keras/blob/master/examples/mnist_mlp.py). The newest version uses a CNN, which is also not mine but is based on the architecture presented in [this blog post](http://machinelearningmastery.com/handwritten-digit-recognition-using-convolutional-neural-networks-python-keras/). The image preprocessing code in the newest version is adapted from [this blog post](http://opensourc.es/blog/tensorflow-mnist).
+
+A live version of the app is running over at [mnist-canvas.herokuapp.com](https://mnist-canvas.herokuapp.com/).
+
+## Update:
+
+New version: `server_CNN.py` uses a more elaborate CNN (trained in `generate_conv_model.py`) to recognize the digits. The server now also preprocesses the files in the same way that the MNIST images were preprocessed, improving recognition.
 
 ### File descriptions:
 

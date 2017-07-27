@@ -120,10 +120,12 @@ def ValueInvert(array):
     # Return the transformed array, with the original shape
     return flatarray.reshape(array.shape)
 
-
+# Preprocess incoming images in the same way that
+# images in the MNIST dataset were processed.
+# This code was adapted from 
+# http://opensourc.es/blog/tensorflow-mnist
 def preprocess(img):
-    print(img, img.shape)
-    print(np.mean(img[0]))
+    
     while int(np.mean(img[0])) == 255:
         img = img[1:]
 
@@ -135,7 +137,6 @@ def preprocess(img):
 
     while np.mean(img[:,-1]) == 255:
         img = np.delete(img,-1,1)
-    print(img, img.shape)
 
     rows,cols = img.shape
 
@@ -149,19 +150,14 @@ def preprocess(img):
         cols = 20
         rows = int(round(rows*factor))
         img = cv2.resize(img, (cols, rows))
-    print(img, img.shape)
 
     colsPadding = (int(math.ceil((28-cols)/2.0)),int(math.floor((28-cols)/2.0)))
     rowsPadding = (int(math.ceil((28-rows)/2.0)),int(math.floor((28-rows)/2.0)))
     img = np.lib.pad(img,(rowsPadding,colsPadding),'constant', constant_values=255)
 
-    print(img, img.shape)
     shiftx,shifty = getBestShift(img)
     shifted = shift(img,shiftx,shifty)
     img = shifted
-    
-    print(img, img.shape)
-    #img = cv2.blur(img,(2,2))
     
     return img
 
