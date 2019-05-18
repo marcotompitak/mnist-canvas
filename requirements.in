@@ -2,3 +2,4 @@ Flask
 Flask-CORS
 keras
 opencv
+gunicorn
